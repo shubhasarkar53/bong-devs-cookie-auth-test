@@ -1,5 +1,6 @@
 // src/components/Signup.js
 import React, { useState } from 'react';
+import { BASE_URL } from '../baseUrl';
 
 function Signup() {
     const [username, setUsername] = useState('');
@@ -7,7 +8,7 @@ function Signup() {
     const [message, setMessage] = useState('');
 
     const handleSignup = async () => {
-        const response = await fetch('http://localhost:3000/api/v1/admin/signup', {
+        const response = await fetch(`${BASE_URL}/api/v1/admin/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),

@@ -1,12 +1,13 @@
 // src/components/Dashboard.js
 import React, { useState, useEffect } from 'react';
+import { BASE_URL } from '../baseUrl';
 
 function Dashboard() {
     const [dashboardMessage, setDashboardMessage] = useState('');
 
     useEffect(() => {
         const fetchDashboard = async () => {
-            const response = await fetch('http://localhost:3000/api/v1/admin/profile', {
+            const response = await fetch(`${BASE_URL}/api/v1/admin/profile`, {
                 method: 'GET',
                 credentials: 'include', // include cookies
             });
